@@ -32,11 +32,11 @@ namespace D3___Avaliação.Repositories
 
         private static string PrepareLineLogin(User user)
         {
-            return $"O usuário {user.Name} - {user.Email} acessou o sistema ás {DateTimeOffset.Now}.";
+            return $"O usuário {user.Name} - {user.Email} acessou o sistema as {DateTimeOffset.Now}.";
         }
         private static string PrepareLineLogout(User user)
         {
-            return $"O usuário {user.Name} - {user.Email} deslogou do sistema ás {DateTimeOffset.Now}.";
+            return $"O usuário {user.Name} - {user.Email} deslogou do sistema as {DateTimeOffset.Now}.";
         }
 
         public void RegisterAccess(User user)

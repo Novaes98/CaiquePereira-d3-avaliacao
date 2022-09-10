@@ -1,7 +1,9 @@
 ﻿using D3___Avaliação.Interfaces;
 using D3___Avaliação.Models;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using System.Reflection.Metadata.Ecma335;
+using System.Reflection.PortableExecutable;
 
 namespace D3___Avaliação.Repositories
 {
@@ -27,7 +29,8 @@ namespace D3___Avaliação.Repositories
 
                     if (queryResult.HasRows)
                     {
-                        
+                        queryResult.Read();
+                        user.Name = queryResult.GetString(queryResult.GetOrdinal("Name"));
                         return true;
                     }
                     return false;
