@@ -19,9 +19,10 @@ namespace D3___Avaliação
 
             do
             {
-                Console.WriteLine("\nEscolha uma das opções abaixo:\n");
-                Console.WriteLine("1 - Acessar");
-                Console.WriteLine("0 - Cancelar\n");
+                Console.WriteLine("***************************");
+                Console.WriteLine("Escolha uma das opções abaixo:\n");
+                Console.WriteLine(" --> 1 : Acessar");
+                Console.WriteLine(" --> 0 : Cancelar");
 
                 option = Console.ReadLine();
 
@@ -31,22 +32,22 @@ namespace D3___Avaliação
                 {
                     case "1":
 
-                        Console.WriteLine("Digite seu email:\n");
+                        Console.WriteLine("\nDigite seu email:");
                         user.Email = Console.ReadLine();
-                        Console.WriteLine("Digite sua senha:\n");
+                        Console.WriteLine("\nDigite sua senha:");
                         user.Pwd = Console.ReadLine();
 
                         if (_user.Login(user))
                         {
                             _log.RegisterAccess(user);
-                            Console.WriteLine("\nSucesso no login:\n");
+                            Console.WriteLine("\nSucesso no login!\n");
 
                             do
                             {
-                                Console.WriteLine("\nEscolha uma das opções abaixo:\n");
+                                Console.WriteLine("Escolha uma das opções abaixo:");
 
-                                Console.WriteLine("1 - Deslogar");
-                                Console.WriteLine("0 - Encerrar sistema\n");
+                                Console.WriteLine(" --> 1 : Deslogar");
+                                Console.WriteLine(" --> 0 : Encerrar sistema");
 
                                 _option = Console.ReadLine();
 
@@ -71,11 +72,10 @@ namespace D3___Avaliação
                             
                         }
 
-                        Console.WriteLine("Email e/ou Senha incorretos! Tente novamente..");
                         break;
 
                     default:
-
+                        Console.WriteLine("Email e/ou Senha incorretos! Tente novamente..");
                         break;
                 }
 
