@@ -16,6 +16,7 @@ namespace D3___Avaliação
             LogRepository _log = new(file);
 
             string option, _option;
+            bool loginUser;
 
             do
             {
@@ -30,52 +31,59 @@ namespace D3___Avaliação
 
                 switch (option)
                 {
+                    case "0":
+                        break;
                     case "1":
 
-                        Console.WriteLine("\nDigite seu email:");
-                        user.Email = Console.ReadLine();
-                        Console.WriteLine("\nDigite sua senha:");
-                        user.Pwd = Console.ReadLine();
-
-                        if (_user.Login(user))
+                        do
                         {
-                            _log.RegisterAccess(user);
-                            Console.WriteLine("\nSucesso no login!\n");
+                            Console.WriteLine("\nDigite seu email:");
+                            user.Email = Console.ReadLine();
+                            Console.WriteLine("\nDigite sua senha:");
+                            user.Pwd = Console.ReadLine();
 
-                            do
+                            if (loginUser = _user.Login(user))
                             {
-                                Console.WriteLine("Escolha uma das opções abaixo:");
+                                _log.RegisterAccess(user);
+                                Console.WriteLine("\nSucesso no login!\n");
 
-                                Console.WriteLine(" --> 1 : Deslogar");
-                                Console.WriteLine(" --> 0 : Encerrar sistema");
-
-                                _option = Console.ReadLine();
-
-                                switch (_option)
+                                do
                                 {
-                                    case "1":
-                                        
-                                        break;
-                                    case "0":
-                                        _log.RegisterLogout(user);
+                                    Console.WriteLine("Escolha uma das opções abaixo:");
 
-                                        file.Close();
+                                    Console.WriteLine(" --> 1 : Deslogar");
+                                    Console.WriteLine(" --> 0 : Encerrar sistema");
 
-                                        return;
-                                    default:
-                                        Console.WriteLine("Opção inválida! Tente novamente.\n");
+                                    _option = Console.ReadLine();
 
-                                        break;
+                                    switch (_option)
+                                    {
+                                        case "1":
 
-                                }
-                            } while (_option != "1");
-                            
-                        }
+                                            break;
+                                        case "0":
+                                            _log.RegisterLogout(user);
 
+                                            file.Close();
+
+                                            return;
+                                        default:
+                                            Console.WriteLine("Opção inválida! Tente novamente.\n");
+                                            break;
+
+                                    }
+                                } while (_option != "1");
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nEmail e/ou Senha incorretos! Por favor, tente novamente...");
+                            }
+                        } while (!loginUser);
                         break;
 
                     default:
-                        Console.WriteLine("Email e/ou Senha incorretos! Tente novamente..");
+                        Console.WriteLine("\nOpção inválida! Tente novamente.\n");
                         break;
                 }
 
