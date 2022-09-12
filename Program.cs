@@ -12,7 +12,7 @@ namespace D3___Avaliação
             UserRepository _user = new();
 
             FileStream file = File.OpenWrite(path);
-
+            
             LogRepository _log = new(file);
 
             string option, _option;
@@ -59,11 +59,11 @@ namespace D3___Avaliação
                                     switch (_option)
                                     {
                                         case "1":
+                                            _log.RegisterLogout(user);
 
                                             break;
                                         case "0":
                                             _log.RegisterLogout(user);
-
                                             file.Close();
 
                                             return;
@@ -88,7 +88,7 @@ namespace D3___Avaliação
                 }
 
             } while (option != "0");
-
+            
             file.Close();
         }
     }

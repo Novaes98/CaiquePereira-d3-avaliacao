@@ -10,7 +10,7 @@ namespace D3___Avaliação.Models
 {
     internal class User
     {
-        public Guid IdUser { get; set; }
+        public string IdUser { get; set; }
 
         public string Name { get; set; } = string.Empty;
 

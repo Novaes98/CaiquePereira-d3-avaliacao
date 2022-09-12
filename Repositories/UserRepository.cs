@@ -31,6 +31,7 @@ namespace D3___Avaliação.Repositories
                     {
                         queryResult.Read();
                         user.Name = queryResult.GetString(queryResult.GetOrdinal("Name"));
+                        user.IdUser = queryResult.GetString(queryResult.GetOrdinal("Id"));
                         return true;
                     }
                     return false;
